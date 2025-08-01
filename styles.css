@@ -18,8 +18,8 @@ html, body {
 .lang-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  max-width: 350px;
+  gap: 10px;
+  max-width: 320px;
   width: 100%;
   margin: 40px auto;  /* 上下に余白を追加 */
   padding: 0 16px;    /* 小さな左右余白 */
