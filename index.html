@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>言語選択＋日付</title>
+
+  <!-- ① クリティカルCSS（インライン） -->
+  <style>
+    .lang-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 350px;
+      margin: auto;
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .lang-grid a {
+      display: block;
+      padding: 12px;
+      background: #ffffffcc;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- ② リソースヒント -->
+  <link rel="preload" href="/date.js" as="script"/>
+  <link rel="dns-prefetch" href="//your-vercel-domain.vercel.app"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+</head>
+<body>
+  <!-- ③ 日付付与スクリプト（非同期ロード） -->
+  <script async src="/date.js"></script>
+
+  <!-- ④ 言語選択グリッド -->
+  <div class="lang-grid">
+    <a href="#japanese">日本語</a>
+    <a href="#english">English</a>
+    <a href="#chinese">中文</a>
+    <a href="#korean">한국어</a>
+  </div>
+
+  <!-- ⑤ Service Worker 登録 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
