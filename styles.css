@@ -1,7 +1,5 @@
-/* styles.css */
-
-/* ベースリセット *//* styles.css */
-* {
+/* ベースリセット */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,44 +16,40 @@ html, body {
 .lang-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  max-width: 320px;
+  gap: 8px;
+  max-width: 300px;
   width: 100%;
-  margin: 40px auto;  /* 上下に余白を追加 */
-  padding: 0 16px;    /* 小さな左右余白 */
+  margin: 40px auto;
+  padding: 0 16px;
 }
-
-/* ボタン共通 */
 .lang-grid a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 0;
-  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 0;
+  background: rgba(255,255,255,0.95);
   border: none;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   text-decoration: none;
   font-weight: bold;
   color: #000;
   font-size: 1rem;
   transition: transform .1s ease, box-shadow .1s ease;
 }
-
-/* ホバー時の浮き上がり */
 .lang-grid a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* モバイル視認性調整 */
+/* モバイル調整 */
 @media (max-width: 400px) {
   .lang-grid {
-    gap: 8px;
+    gap: 6px;
     padding: 0 8px;
   }
   .lang-grid a {
     font-size: 0.9rem;
-    padding: 12px 0;
+    padding: 6px 0;
   }
 }
